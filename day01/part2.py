@@ -2,20 +2,14 @@
 changeList = []
 f = open('input.txt', 'r') 
 for line in f:
-    changeList.append((line[0], int(line[1:])))
+    changeList.append(int(line))
     
 freq = 0
 foundDup = False
 seen = [freq] # Given example states the starting freq of 0 counts towards seen list
 while not foundDup:
     for c in changeList:
-        op = c[0]
-        val = c[1]
-        if op is '-':
-            freq -= val
-        elif op is '+':
-            freq += val
-        
+        freq += c
         if freq in seen:
             foundDup = True
             break
