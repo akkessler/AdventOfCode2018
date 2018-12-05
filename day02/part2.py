@@ -1,7 +1,8 @@
 def findOffByOne(lines):
     length = len(lines[0].strip())
-    for x in lines:
-        for y in lines: # there is repeat checks, use index instead: `y in lines[#:]``
+    for j in range(len(lines)):
+        x = lines[j]
+        for y in lines[j+1:]:
             diffs = 0
             index = -1
             for i in range(length):
@@ -18,7 +19,6 @@ def findOffByOne(lines):
                         ans += x[i]
                 return ans 
     return ''
-
 
 f = open('input.txt', 'r')
 lines = f.readlines()
